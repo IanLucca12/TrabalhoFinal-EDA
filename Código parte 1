@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <time.h>
+
+ struct dados{
+char category[40];
+float amount;
+};
+
+void insertionSort(int list[], int n)
+ {
+	 int i, j;
+	 int next;
+	 for (i=1; i<n; i++) {
+		 next= list[i];
+	 for (j=i-1; j>=0&&next<list[j];j--)
+		 list[j+1] = list[j];
+		 list[j+1] = next;
+		}
+ }
+
+
+
+ int main(){
+
+    struct dados D;
+        char ch ;
+            FILE *fp;
+            fp = fopen ( "Amazonsale.csv", "r" ) ;
+            if ( fp == NULL ){
+                puts ( "Cannot open file" ) ;
+                system("pause");
+                exit(0) ;
+            }
+            while(1){
+                char result;
+
+                result = fscanf(fp, "%s %f", D.category, &D.amount);
+
+                if ( result == EOF)
+                    break;
+                printf("%s - %f \n", D.category, D.amount);
+            }
+            fclose(fp);
+
+
+
+
+          }
+
+
