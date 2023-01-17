@@ -39,7 +39,7 @@ void insertionSort(float list[], int n,int o[]){
     int line,j,o[129000], num=0;
     FILE *fp, *fp2;
     FILE *copy;
-    fp = fopen ( "Amazonsale.csv", "r" ) ;
+    fp = fopen ( "Trimmed_File.csv", "r" ) ;
     if ( fp == NULL ){
         puts ( "Cannot open file" ) ;
         system("pause");
@@ -58,13 +58,17 @@ void insertionSort(float list[], int n,int o[]){
     copy = fopen("Amazonsalecopy.csv","w");
     insertionSort(lis,num,o);
     printf("\n ORDENADO: \n");
-    for(j=0;j<=num;j++){
-            fp2 = fopen("Acess_Line.csv", "w");
+
+    fp2 = fopen("Acess_Line.csv", "w");
             if ( fp2 == NULL ){
                 puts ( "Cannot open file" ) ;
                 system("pause");
                 exit(0) ;
             }
+
+
+    for(j=0;j<=num;j++){
+            fp = fopen ( "Amazonsale.csv", "r" ) ;
             line=o[j];
             *fp = acessLine(fp, line);
             char ch = fgetc(fp);
@@ -76,8 +80,10 @@ void insertionSort(float list[], int n,int o[]){
 
         //printf("%d\n",o[j]);
         printf("%.2f\n",lis[j]);
-        fprintf(copy,"%.2f\n",lis[j]);
+        fprintf(fp2," %.2f\n",lis[j]);
+
+    }
+    printf("estou aqui");
     fclose(copy);
     fclose(fp);
-    }
 }
