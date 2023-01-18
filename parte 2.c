@@ -59,7 +59,7 @@ void insertionSort(float list[], int n,int o[]){
     insertionSort(lis,num,o);
     printf("\n ORDENADO: \n");
 
-    fp2 = fopen("Acess_Line.csv", "w");
+    fp2 = fopen("Arquivo_ordenado.csv", "w");
             if ( fp2 == NULL ){
                 puts ( "Cannot open file" ) ;
                 system("pause");
